@@ -1,0 +1,17 @@
+AppBundle\Entity\Review:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ReviewRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        rating:
+            type: smallint
+        dateCreated:
+            type: datetime
+            column: date_created
+    lifecycleCallbacks: {  }
