@@ -3,6 +3,6 @@ connect:
     path:     /login
     defaults: { _controller: AppBundle:Facebook:connect }
 
-connect_check:
+facebook_check:
     path:     /facebook_check
     defaults: { _controller: AppBundle:Facebook:connectCheck }

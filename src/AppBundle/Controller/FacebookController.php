@@ -8,9 +8,9 @@ class FacebookController extends Controller
 {
     public function connectAction()
     {
-        return $this->render('AppBundle:Facebook:connect.html.twig', array(
-            // ...
-        ));
+        return $this->get('oauth2.registry')
+            ->getClient('facebook_main')
+            ->redirect();
     }
 
     public function connectCheckAction()
