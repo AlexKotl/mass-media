@@ -80,7 +80,8 @@ knpu_oauth2_client:
             client_secret: a56b6b5a25edd5988d0b3b8edb97fb38
             # the route that you're redirected to after
             # see the controller example below
-            redirect_route: facebook_check
+            redirect_route: root
             # route parameters to pass to your route, if needed
             redirect_params: {}
             graph_api_version: v2.3
+            #use_state: false
