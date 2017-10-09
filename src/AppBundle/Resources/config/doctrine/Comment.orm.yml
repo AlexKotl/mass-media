@@ -23,3 +23,5 @@ AppBundle\Entity\Comment:
             targetEntity: Comment
         review:
             targetEntity: Review
+        site:
+            targetEntity: Site

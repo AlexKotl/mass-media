@@ -11,6 +11,11 @@ AppBundle\Entity\Review:
     fields:
         rating:
             type: smallint
+        title:
+            type: string
+            length: '255'
+        review:
+            type: text
         dateCreated:
             type: datetime
             column: date_created
