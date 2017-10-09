@@ -33,3 +33,6 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    my_facebook_authenticator:
+        class: AppBundle\Security\MyFacebookAuthenticator
+        autowire: true
