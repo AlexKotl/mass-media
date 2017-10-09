@@ -12,4 +12,10 @@ AppBundle\Entity\User:
         name:
             type: string
             length: '100'
+        email:
+            type: string
+            length: '150'
+        facebook_id:
+            type: string
+            length: '100'
     lifecycleCallbacks: {  }

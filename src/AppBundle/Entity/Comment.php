@@ -80,5 +80,91 @@ class Comment
     {
         return $this->dateCreated;
     }
-}
+    /**
+     * @var \AppBundle\Entity\User
+     */
+    private $user;
 
+    /**
+     * @var \AppBundle\Entity\Comment
+     */
+    private $parent;
+
+    /**
+     * @var \AppBundle\Entity\Review
+     */
+    private $review;
+
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Comment
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \AppBundle\Entity\Comment $parent
+     *
+     * @return Comment
+     */
+    public function setParent(\AppBundle\Entity\Comment $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \AppBundle\Entity\Comment
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Set review
+     *
+     * @param \AppBundle\Entity\Review $review
+     *
+     * @return Comment
+     */
+    public function setReview(\AppBundle\Entity\Review $review = null)
+    {
+        $this->review = $review;
+
+        return $this;
+    }
+
+    /**
+     * Get review
+     *
+     * @return \AppBundle\Entity\Review
+     */
+    public function getReview()
+    {
+        return $this->review;
+    }
+}

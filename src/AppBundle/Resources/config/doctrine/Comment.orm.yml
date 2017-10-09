@@ -15,3 +15,11 @@ AppBundle\Entity\Comment:
             type: datetime
             column: date_created
     lifecycleCallbacks: {  }
+
+    manyToOne:
+        user:
+            targetEntity: User
+        parent:
+            targetEntity: Comment
+        review:
+            targetEntity: Review

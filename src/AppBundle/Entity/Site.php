@@ -110,4 +110,3 @@ class Site
         return $this->description;
     }
 }
-
