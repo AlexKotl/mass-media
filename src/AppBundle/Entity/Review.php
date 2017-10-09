@@ -109,4 +109,62 @@ class Review
     {
         return $this->user;
     }
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $review;
+
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Review
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set review
+     *
+     * @param string $review
+     *
+     * @return Review
+     */
+    public function setReview($review)
+    {
+        $this->review = $review;
+
+        return $this;
+    }
+
+    /**
+     * Get review
+     *
+     * @return string
+     */
+    public function getReview()
+    {
+        return $this->review;
+    }
 }

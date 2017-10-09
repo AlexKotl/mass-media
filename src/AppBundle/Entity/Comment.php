@@ -167,4 +167,33 @@ class Comment
     {
         return $this->review;
     }
+    /**
+     * @var \AppBundle\Entity\Site
+     */
+    private $site;
+
+
+    /**
+     * Set site
+     *
+     * @param \AppBundle\Entity\Site $site
+     *
+     * @return Comment
+     */
+    public function setSite(\AppBundle\Entity\Site $site = null)
+    {
+        $this->site = $site;
+
+        return $this;
+    }
+
+    /**
+     * Get site
+     *
+     * @return \AppBundle\Entity\Site
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
 }
