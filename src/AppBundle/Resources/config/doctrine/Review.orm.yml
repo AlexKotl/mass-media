@@ -11,6 +11,8 @@ AppBundle\Entity\Review:
     fields:
         rating:
             type: smallint
+            nullable: true
+            default: '0'
         title:
             type: string
             length: '255'
@@ -24,3 +26,5 @@ AppBundle\Entity\Review:
     manyToOne:
         user:
             targetEntity: User
+        site:
+            targetEntity: Site

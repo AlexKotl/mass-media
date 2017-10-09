@@ -11,6 +11,10 @@ AppBundle\Entity\Comment:
     fields:
         text:
             type: text
+        rating:
+            type: smallint
+            nullable: true
+            default: '0'
         dateCreated:
             type: datetime
             column: date_created
