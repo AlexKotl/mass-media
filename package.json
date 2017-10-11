@@ -1,0 +1,27 @@
+{
+  "name": "massmedia",
+  "version": "1.0.0",
+  "description": "massmedia =========",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexKotl/mass-media.git"
+  },
+  "author": "Alex Kotliarov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexKotl/mass-media/issues"
+  },
+  "homepage": "https://github.com/AlexKotl/mass-media#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1"
+  }
+}
