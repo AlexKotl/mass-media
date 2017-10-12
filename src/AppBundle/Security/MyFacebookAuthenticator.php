@@ -8,6 +8,8 @@ use KnpU\OAuth2ClientBundle\Client\Provider\FacebookClient;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 class MyFacebookAuthenticator extends SocialAuthenticator
 {
@@ -71,7 +73,22 @@ class MyFacebookAuthenticator extends SocialAuthenticator
             ->getClient('facebook_main');
     }
 
-    // ...
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
+    {
+        // on success, let the request continue
+        return null;
+    }
+
+    public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
+    {
+        die('failed');
+    }
+
+    public function start(Request $request, AuthenticationException $authException = null)
+    {
+        die('Auth required');
+    }
+
 }
 
 ?>

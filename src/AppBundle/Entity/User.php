@@ -2,10 +2,12 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * User
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -52,4 +54,3 @@ class User
         return $this->name;
     }
 }
-
