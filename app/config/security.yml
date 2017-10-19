@@ -6,7 +6,7 @@ security:
     providers:
         in_memory:
             memory: ~
-        your_db_provider:
+        db_provider:
             entity:
                 class: AppBundle:User
                 property: apiKey
@@ -26,3 +26,6 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+
+    access_control:
+        - { path: ^admin, roles: ROLE_ADMIN}    
