@@ -11,8 +11,20 @@ AppBundle\Entity\User:
     fields:
         name:
             type: string
-            length: '100'
+            length: 100
+        email:
+            type: string
+            length: 100
+        avatara:
+            type: blob
+            nullable: true
+        facebookId:
+            type: string
+            length: 100
+            nullable: true
         apiKey:
             type: string
-            length: '100'
+            length: 100
+            nullable: true
+
     lifecycleCallbacks: {  }

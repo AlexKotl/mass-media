@@ -16,4 +16,11 @@ class DefaultController extends Controller
             //'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    public function profileAction()
+    {
+        return $this->render('AppBundle:Default:index.html.twig', [
+            //'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
 }

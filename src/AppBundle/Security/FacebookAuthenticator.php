@@ -10,8 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use AppBundle\Entity\User;
 
-class MyFacebookAuthenticator extends SocialAuthenticator
+class FacebookAuthenticator extends SocialAuthenticator
 {
     private $clientRegistry;
     private $em;
@@ -26,7 +27,8 @@ class MyFacebookAuthenticator extends SocialAuthenticator
 
     public function getCredentials(Request $request)
     {
-        if ($request->getPathInfo() != '/connect/facebook/check') {
+        //die('get credentials');
+        if ($request->getPathInfo() != '/') {
             // don't auth
             return;
         }
@@ -36,7 +38,9 @@ class MyFacebookAuthenticator extends SocialAuthenticator
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
+        //die('get user');
         /** @var FacebookUser $facebookUser */
+
         $facebookUser = $this->getFacebookClient()
             ->fetchUserFromToken($credentials);
 
@@ -44,19 +48,19 @@ class MyFacebookAuthenticator extends SocialAuthenticator
 
         // 1) have they logged in with Facebook before? Easy!
         $existingUser = $this->em->getRepository('AppBundle:User')
-            //->findOneBy(['facebookId' => $facebookUser->getId()]);
-            ->find(1);
+            ->findOneBy(['facebookId' => $facebookUser->getId()]);
         if ($existingUser) {
             return $existingUser;
         }
 
-        // 2) do we have a matching user by email?
-        $user = $this->em->getRepository('AppBundle:User')
-            ->findOneBy(['email' => $email]);
-
         // 3) Maybe you just want to "register" them by creating
         // a User object
-        $user->setFacebookId($facebookUser->getId());
+        $user = new User();
+        $user
+            ->setFacebookId($facebookUser->getId())
+            ->setName($facebookUser->getName())
+            ->setAvatara(file_get_contents($facebookUser->getPictureUrl()))
+            ->setEmail($facebookUser->getEmail());
         $this->em->persist($user);
         $this->em->flush();
 

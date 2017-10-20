@@ -19,13 +19,14 @@ security:
 
         main:
             anonymous: ~
-            # activate different ways to authenticate
+            logout: ~
 
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
+            guard:
+                authenticators:
+                    - AppBundle\Security\FacebookAuthenticator
 
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+
 
     access_control:
-        - { path: ^admin, roles: ROLE_ADMIN}    
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_USER }

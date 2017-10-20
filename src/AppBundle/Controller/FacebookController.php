@@ -13,11 +13,6 @@ class FacebookController extends Controller
             ->redirect();
     }
 
-    public function connectCheckAction()
-    {
-        return $this->render('AppBundle:Facebook:connect_check.html.twig', array(
-            // ...
-        ));
-    }
+
 
 }
