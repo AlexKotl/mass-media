@@ -27,15 +27,13 @@ class FacebookAuthenticator extends SocialAuthenticator
 
     public function getCredentials(Request $request)
     {
-        // skip auth when logging in
-        if ($request->getPathInfo() != '/') {
-            //return;
-        }
-
-        try {
+        if ($request->getPathInfo() == '/' && $request->query->get('code') != null)
+        {
             return $this->fetchAccessToken($this->getFacebookClient());
-        } catch (IdentityProviderException $e) {
-            throw $e;
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -87,7 +85,6 @@ class FacebookAuthenticator extends SocialAuthenticator
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        print_r($exception->getMessageData());
         die('Auth failed');
     }
 
