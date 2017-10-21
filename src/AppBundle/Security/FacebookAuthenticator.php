@@ -27,13 +27,16 @@ class FacebookAuthenticator extends SocialAuthenticator
 
     public function getCredentials(Request $request)
     {
-        //die('get credentials');
+        // skip auth when logging in
         if ($request->getPathInfo() != '/') {
-            // don't auth
-            return;
+            //return;
         }
 
-        return $this->fetchAccessToken($this->getFacebookClient());
+        try {
+            return $this->fetchAccessToken($this->getFacebookClient());
+        } catch (IdentityProviderException $e) {
+            throw $e;
+        }
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
@@ -46,21 +49,21 @@ class FacebookAuthenticator extends SocialAuthenticator
 
         $email = $facebookUser->getEmail();
 
-        // 1) have they logged in with Facebook before? Easy!
+        // check if registered before
         $existingUser = $this->em->getRepository('AppBundle:User')
             ->findOneBy(['facebookId' => $facebookUser->getId()]);
         if ($existingUser) {
             return $existingUser;
         }
 
-        // 3) Maybe you just want to "register" them by creating
-        // a User object
+        // register new user
         $user = new User();
         $user
             ->setFacebookId($facebookUser->getId())
             ->setName($facebookUser->getName())
             ->setAvatara(file_get_contents($facebookUser->getPictureUrl()))
-            ->setEmail($facebookUser->getEmail());
+            ->setEmail($facebookUser->getEmail())
+            ->setApiKey($credentials);
         $this->em->persist($user);
         $this->em->flush();
 
@@ -73,7 +76,6 @@ class FacebookAuthenticator extends SocialAuthenticator
     private function getFacebookClient()
     {
         return $this->clientRegistry
-            // "facebook_main" is the key used in config.yml
             ->getClient('facebook_main');
     }
 
@@ -85,7 +87,8 @@ class FacebookAuthenticator extends SocialAuthenticator
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        die('failed');
+        print_r($exception->getMessageData());
+        die('Auth failed');
     }
 
     public function start(Request $request, AuthenticationException $authException = null)

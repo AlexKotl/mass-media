@@ -23,8 +23,7 @@ AppBundle\Entity\User:
             length: 100
             nullable: true
         apiKey:
-            type: string
-            length: 100
+            type: text
             nullable: true
 
     lifecycleCallbacks: {  }
