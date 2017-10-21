@@ -67,3 +67,21 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+# Facebook auth
+knpu_oauth2_client:
+    clients:
+        # the key "facebook_main" can be anything, it
+        # will create a service: "knpu.oauth2.client.facebook_main"
+        facebook_main:
+            # this will be one of the supported types
+            type: facebook
+            client_id: 930986500392160
+            client_secret: a56b6b5a25edd5988d0b3b8edb97fb38
+            # the route that you're redirected to after
+            # see the controller example below
+            redirect_route: root
+            # route parameters to pass to your route, if needed
+            redirect_params: {}
+            graph_api_version: v2.8
+            use_state: true
