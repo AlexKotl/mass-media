@@ -225,5 +225,33 @@ class Comment
     {
         return $this->rating;
     }
-}
+    /**
+     * @var integer
+     */
+    private $flag = 1;
 
+
+    /**
+     * Set flag
+     *
+     * @param integer $flag
+     *
+     * @return Comment
+     */
+    public function setFlag($flag)
+    {
+        $this->flag = $flag;
+
+        return $this;
+    }
+
+    /**
+     * Get flag
+     *
+     * @return integer
+     */
+    public function getFlag()
+    {
+        return $this->flag;
+    }
+}

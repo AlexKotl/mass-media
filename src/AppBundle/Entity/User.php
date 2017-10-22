@@ -190,5 +190,23 @@ class User implements UserInterface
     {
         return $this->facebook_id;
     }
-}
+    /**
+     * @var string
+     */
+    private $roles;
 
+
+    /**
+     * Set roles
+     *
+     * @param string $roles
+     *
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+}

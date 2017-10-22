@@ -25,5 +25,8 @@ AppBundle\Entity\User:
         apiKey:
             type: text
             nullable: true
+        roles:
+            type: string
+            length: 255
 
     lifecycleCallbacks: {  }

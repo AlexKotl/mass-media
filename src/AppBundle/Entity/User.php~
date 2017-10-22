@@ -176,7 +176,7 @@ class User implements UserInterface
      */
     public function setFacebookId($facebookId)
     {
-        $this->facebookId = $facebookId;
+        $this->facebook_id = $facebookId;
 
         return $this;
     }
@@ -188,6 +188,6 @@ class User implements UserInterface
      */
     public function getFacebookId()
     {
-        return $this->facebookId;
+        return $this->facebook_id;
     }
 }

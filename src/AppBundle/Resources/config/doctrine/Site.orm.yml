@@ -18,4 +18,8 @@ AppBundle\Entity\Site:
         description:
             type: text
             nullable: true
+        flag:
+            type: smallint
+            options:
+                default: 1
     lifecycleCallbacks: {  }

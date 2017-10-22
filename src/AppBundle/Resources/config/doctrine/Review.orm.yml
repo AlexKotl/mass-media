@@ -21,6 +21,10 @@ AppBundle\Entity\Review:
         dateCreated:
             type: datetime
             column: date_created
+        flag:
+            type: smallint
+            options:
+                default: 1
     lifecycleCallbacks: {  }
 
     manyToOne:

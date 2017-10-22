@@ -109,4 +109,33 @@ class Site
     {
         return $this->description;
     }
+    /**
+     * @var tinyinteger
+     */
+    private $flag;
+
+
+    /**
+     * Set flag
+     *
+     * @param \tinyinteger $flag
+     *
+     * @return Site
+     */
+    public function setFlag(\tinyinteger $flag)
+    {
+        $this->flag = $flag;
+
+        return $this;
+    }
+
+    /**
+     * Get flag
+     *
+     * @return \tinyinteger
+     */
+    public function getFlag()
+    {
+        return $this->flag;
+    }
 }
