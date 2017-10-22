@@ -10,4 +10,18 @@ namespace AppBundle\Repository;
  */
 class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findLatest($count = 5) {
+        $qb = $this->getEntityManager()->createQueryBuilder()
+            ->select('c')
+            ->from('AppBundle:Comment', 'c')
+            ->where('c.flag = :flag')
+            ->orderBy('c.id')
+            ->setParameter('flag', 1)
+            ->setMaxResults($count);
+        //die($qb->getDql());
+        return $qb->getQuery()->getResult();
+
+    }
+
 }

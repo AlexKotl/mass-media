@@ -4,14 +4,18 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Comment;
 
 class HomeController extends Controller
 {
+
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+        $comments = $this->getDoctrine()->getRepository(Comment::class)
+            ->findLatest(5);
+
         return $this->render('AppBundle:Home:index.html.twig', [
-            //'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'comments' => $comments,
         ]);
     }
 
