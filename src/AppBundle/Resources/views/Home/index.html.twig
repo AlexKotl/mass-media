@@ -34,7 +34,7 @@
         <ul>
             {% for site in sites %}
                 <li>
-                    <a href="http://{{ site.url }}">
+                    <a href="{{ path('site_details', {url: site.url}) }}">
                         {{ site.url }}
                     </a>
                 </li>

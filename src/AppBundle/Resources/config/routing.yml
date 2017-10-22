@@ -3,6 +3,11 @@ root:
     path: /
     defaults: { _controller: AppBundle:Home:index }
 
+site_details:
+    path: /sites/{url}
+    defaults: { _controller: AppBundle:Site:details}
+
+# auth routs
 connect:
     path:     /login
     defaults: { _controller: AppBundle:Facebook:connect }
