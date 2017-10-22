@@ -1,5 +1,30 @@
 .mainSearch {
+
+    padding: 50px 0;
+
     .searchInput {
+        font-size: 2em;
+        height: 2em;
+    }
+
+    [type=submit] {
+        font-size: 2em;
         width: 100%;
+    }
+
+    .overview{
+        height: 150px;
+
+        p {
+            font-size: 1.4em;
+            color: gray;
+        }
+
+        .arrow {
+            position: absolute;
+            width: 140px;
+            transform: scaleX(-1) rotate(90deg);
+            opacity: 0.7;
+        }
     }
 }
