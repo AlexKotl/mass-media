@@ -6,7 +6,7 @@ var gulpLoadPlugins = require('gulp-load-plugins');
 var $ = gulpLoadPlugins();
 // var cleanCSS = require('gulp-clean-css');
 
-var input = 'assets/css';
+var input = 'assets/scss/**/*.scss';
 
 gulp.task('sass', function () {
     gulp.src(input)
@@ -20,6 +20,7 @@ gulp.task('sass', function () {
             "iOS >= 6",
             "Opera >= 12",
             "Safari >= 6" ) )
+        //.pipe($.concat('components.js'))
         .pipe(gulp.dest('web/build'));
 });
 
