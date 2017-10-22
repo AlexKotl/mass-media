@@ -3,5 +3,18 @@
 {% block title %}AppBundle:Site:details{% endblock %}
 
 {% block content %}
-<h1>Welcome to the Site:details page</h1>
+    <h1>{{ site.title }}</h1>
+
+    <h3>
+        <a href="http://{{ site.url }}" rel="nofollow" target="_blank">
+            {{ site.url }}
+        </a>
+    </h3>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>{{ site.description }}</p>            
+        </div>
+    </div>
+
 {% endblock %}
