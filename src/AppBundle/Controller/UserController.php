@@ -5,9 +5,9 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
-    public function indexAction(Request $request)
+    public function profileAction(Request $request)
     {
         // replace this example code with whatever you need
         return $this->render('AppBundle:Home:index.html.twig', [
