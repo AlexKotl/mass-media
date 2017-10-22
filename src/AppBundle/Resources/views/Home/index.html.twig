@@ -31,7 +31,15 @@
 
     <div class="col-sm-9">
         <h3>Последние ресурсы</h3>
-
+        <ul>
+            {% for site in sites %}
+                <li>
+                    <a href="http://{{ site.url }}">
+                        {{ site.url }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 
     <div class="col-sm-3">

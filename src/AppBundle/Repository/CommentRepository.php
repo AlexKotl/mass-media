@@ -19,7 +19,7 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
             ->orderBy('c.id')
             ->setParameter('flag', 1)
             ->setMaxResults($count);
-        //die($qb->getDql());
+
         return $qb->getQuery()->getResult();
 
     }
