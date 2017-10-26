@@ -20,6 +20,8 @@
 
     <section class="comments">
         <h4>Комментарии</h4>
+        
+        {{ form(comment_form) }}
 
         {% for comment in site.comments %}
             <div class="panel panel-default">
