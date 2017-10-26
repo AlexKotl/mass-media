@@ -20,14 +20,14 @@
 
     <section class="comments">
         <h4>Комментарии</h4>
-        
+
         {{ form(comment_form) }}
 
         {% for comment in site.comments %}
             <div class="panel panel-default">
                 <div class="panel-heading">
 
-                    {{ comment.user.name }}
+                    {{ comment.user.name is defined ? comment.user.name : '' }}
 
                     <div class="pull-right">
                         {{ comment.dateCreated | date('d/m/Y') }}

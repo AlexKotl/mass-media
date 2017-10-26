@@ -30,6 +30,18 @@ class SiteController extends Controller
         $commentForm = $this->createForm(CommentType::class, $comment);
         $commentForm->handleRequest($request);
 
+        if ($commentForm->isSubmitted() && $commentForm->isValid())
+        {
+            $comment
+                ->setDateCreated(new \DateTime("now"))
+                //->setUser($post->getUser())
+                ->setSite($site);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
+        }
+
         return $this->render('AppBundle:Site:details.html.twig', array(
             'site' => $site,
             'comment_form' => $commentForm->createView(),
