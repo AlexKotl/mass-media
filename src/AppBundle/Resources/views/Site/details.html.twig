@@ -22,7 +22,19 @@
         <h4>Комментарии</h4>
 
         {% for comment in site.comments %}
-            {{ comment.text }}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    {{ comment.user.name }}
+
+                    <div class="pull-right">
+                        {{ comment.dateCreated | date('d/m/Y') }}
+                    </div>
+                </div>
+                <div class="panel-body">
+                    {{ comment.text }}
+                </div>
+            </div>
         {% endfor %}
     </section>
 
