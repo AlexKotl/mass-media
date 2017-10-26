@@ -28,5 +28,6 @@ AppBundle\Entity\User:
         roles:
             type: string
             length: 255
+            nullable: true
 
     lifecycleCallbacks: {  }

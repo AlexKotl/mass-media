@@ -19,7 +19,8 @@ AppBundle\Entity\Comment:
             type: datetime
             column: date_created
         flag:
-            type: smallint
+            type: integer
+            nullable: true
             options:
                 default: 1
     lifecycleCallbacks: {  }
@@ -33,3 +34,4 @@ AppBundle\Entity\Comment:
             targetEntity: Review
         site:
             targetEntity: Site
+            inversedBy: comments

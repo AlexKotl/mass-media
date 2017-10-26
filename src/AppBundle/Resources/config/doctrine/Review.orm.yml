@@ -22,7 +22,8 @@ AppBundle\Entity\Review:
             type: datetime
             column: date_created
         flag:
-            type: smallint
+            type: integer
+            nullable: true
             options:
                 default: 1
     lifecycleCallbacks: {  }

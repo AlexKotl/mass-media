@@ -18,4 +18,13 @@
         </div>
     </div>
 
+    <section class="comments">
+        <h4>Комментарии</h4>
+
+        {% for comment in site.comments %}
+            {{ comment.text }}
+        {% endfor %}
+    </section>
+
+
 {% endblock %}

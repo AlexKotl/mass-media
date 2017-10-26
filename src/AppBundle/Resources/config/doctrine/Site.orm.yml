@@ -19,7 +19,13 @@ AppBundle\Entity\Site:
             type: text
             nullable: true
         flag:
-            type: smallint
+            type: integer
+            nullable: true
             options:
                 default: 1
     lifecycleCallbacks: {  }
+
+    oneToMany:
+        comments:
+            targetEntity: Comment
+            mappedBy: site

@@ -54,6 +54,7 @@ class Fixtures extends Fixture
             $site->setUrl(strtolower($this->randomString() . '.' . $this->randomString() . '.com'));
             $site->setTitle($this->randomString(4));
             $site->setDescription($this->randomString(20));
+            $site->setFlag(1);
             $manager->persist($site);
 
             // fill in reviews
@@ -65,6 +66,7 @@ class Fixtures extends Fixture
                 $review->setUser($users[rand(0, 4)]);
                 $review->setRating(rand(-5, 20));
                 $review->setSite($site);
+                $review->setFlag(1);
 
                 $manager->persist($review);
             }
@@ -77,6 +79,7 @@ class Fixtures extends Fixture
                 $comment->setUser($users[rand(0, 4)]);
                 $comment->setSite($site);
                 $comment->setRating(rand(-5, 20));
+                $comment->setFlag(1);
                 $manager->persist($comment);
             }
         }
