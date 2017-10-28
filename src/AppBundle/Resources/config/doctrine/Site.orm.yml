@@ -29,3 +29,5 @@ AppBundle\Entity\Site:
         comments:
             targetEntity: Comment
             mappedBy: site
+            orderBy:
+                id: desc
