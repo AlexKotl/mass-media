@@ -51,7 +51,7 @@ class FacebookAuthenticator extends SocialAuthenticator
 
         // check if registered before
         $existingUser = $this->em->getRepository('AppBundle:User')
-            ->findOneBy(['facebookId' => $facebookUser->getId()]);
+            ->findOneBy(['email' => $facebookUser->getEmail()]);
         if ($existingUser) {
             return $existingUser;
         }
