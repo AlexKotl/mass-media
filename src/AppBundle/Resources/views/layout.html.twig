@@ -24,9 +24,9 @@
                         (<a href="{{ path('logout') }}">Выйти</a>)
 
                         {% if app.user.avatara != '' %}
-                            <div class="user-photo">
+                            <a href="{{ path('profile') }}" class="user-photo">
                                 <img src="{{ path('avatara_image', {id: app.user.id}) }}" alt='Avatara' />
-                            </div>
+                            </a>
                         {% endif %}
 
                     {% else %}
