@@ -2,7 +2,7 @@
 namespace AppBundle\Security;
 
 use KnpU\OAuth2ClientBundle\Security\Authenticator\SocialAuthenticator;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface ;
 use Symfony\Component\Routing\RouterInterface;
 use KnpU\OAuth2ClientBundle\Client\Provider\FacebookClient;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
@@ -18,7 +18,7 @@ class FacebookAuthenticator extends SocialAuthenticator
     private $em;
     private $router;
 
-    public function __construct(ClientRegistry $clientRegistry, EntityManager $em, RouterInterface $router)
+    public function __construct(ClientRegistry $clientRegistry, EntityManagerInterface  $em, RouterInterface $router)
     {
         $this->clientRegistry = $clientRegistry;
         $this->em = $em;
