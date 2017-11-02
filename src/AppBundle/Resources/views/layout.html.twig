@@ -16,14 +16,24 @@
 
         <div class="container">
             <section class="header col-md-12 panel">
+
+                <div class="pull-right ">
+                    <br>
+                    {% if is_granted("ROLE_USER") %}
+                        {{ app.user.name }}
+                        (<a href="{{ path('logout') }}">Выйти</a>)
+                    {% else %}
+                        <a href="{{ path('login') }}" class="btn btn-primary">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                            Войдите используя Facebook
+                        </a>
+                    {% endif %}
+                </div>
+
                 <a href="/">
                     <img class="pull-left" src="/images/logo.svg" class="logo" style="width:100px; margin-right:20px">
                 </a>
-                <h2>Проверка СМИ</h2>
-
-                {% if is_granted("ROLE_USER") %}
-                    {{ app.user.name }}
-                {% endif %}
+                <h2>MassMedia checker</h2>
 
                 <br class="clearfix"/>
             </section>

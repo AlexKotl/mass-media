@@ -12,7 +12,7 @@ search_results:
     defaults: { _controller: AppBundle:Search:search }
 
 # auth routs
-connect:
+login:
     path:     /login
     defaults: { _controller: AppBundle:Facebook:connect }
 
