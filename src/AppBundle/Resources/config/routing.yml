@@ -7,6 +7,10 @@ site_details:
     path: /sites/{url}
     defaults: { _controller: AppBundle:Site:details}
 
+search_results:
+    path:     /search
+    defaults: { _controller: AppBundle:Search:search }
+
 # auth routs
 connect:
     path:     /login
