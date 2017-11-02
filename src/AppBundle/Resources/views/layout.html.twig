@@ -20,6 +20,11 @@
                     <img class="pull-left" src="/images/logo.svg" class="logo" style="width:100px; margin-right:20px">
                 </a>
                 <h2>Проверка СМИ</h2>
+
+                {% if is_granted("ROLE_USER") %}
+                    {{ app.user.name }}
+                {% endif %}
+
                 <br class="clearfix"/>
             </section>
 
