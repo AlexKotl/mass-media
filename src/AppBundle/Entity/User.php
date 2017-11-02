@@ -56,7 +56,7 @@ class User implements UserInterface
 
     public function getUsername()
     {
-        return $this->apiKey;
+        return $this->email;
     }
 
     public function getRoles()

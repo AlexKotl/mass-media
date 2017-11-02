@@ -27,6 +27,8 @@ class FacebookAuthenticator extends SocialAuthenticator
 
     public function getCredentials(Request $request)
     {
+        //echo "<li>Get credentials";
+
         if ($request->getPathInfo() == '/' && $request->query->get('code') != null)
         {
             return $this->fetchAccessToken($this->getFacebookClient());
@@ -39,7 +41,7 @@ class FacebookAuthenticator extends SocialAuthenticator
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        //die('get user');
+        //echo "<li>GetUser";
         /** @var FacebookUser $facebookUser */
 
         $facebookUser = $this->getFacebookClient()
@@ -58,6 +60,7 @@ class FacebookAuthenticator extends SocialAuthenticator
         $user = new User();
         $user
             ->setFacebookId($facebookUser->getId())
+            ->setRoles('ROLE_USER')
             ->setName($facebookUser->getName())
             ->setAvatara(file_get_contents($facebookUser->getPictureUrl()))
             ->setEmail($facebookUser->getEmail())
@@ -79,6 +82,7 @@ class FacebookAuthenticator extends SocialAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
+        //echo "<li>onAuthenticationSuccess";
         // on success, let the request continue
         return null;
     }
