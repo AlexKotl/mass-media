@@ -15,6 +15,7 @@ AppBundle\Entity\User:
         email:
             type: string
             length: 100
+            unique: true
         avatara:
             type: blob
             nullable: true
@@ -22,9 +23,12 @@ AppBundle\Entity\User:
             type: string
             length: 100
             nullable: true
+            unique: true
         apiKey:
-            type: text
+            type: string
+            length: 255
             nullable: true
+            unique: true
         roles:
             type: string
             length: 255

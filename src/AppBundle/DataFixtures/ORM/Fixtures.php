@@ -40,7 +40,8 @@ class Fixtures extends Fixture
         for ($i = 0; $i < 5; $i++) {
             $user = new User();
             $user->setName($this->randomString());
-            $user->setFacebookId($this->randomString(1));
+            $user->setFacebookId(rand(100000,999999));
+            $user->setApiKey(rand(100000,999999));
             $user->setEmail($this->randomString(1) . '@' . $this->randomString(1) . '.com' );
             //$user->setLastLoginTime(new \DateTime("now"));
             $manager->persist($user);
