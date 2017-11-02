@@ -6,4 +6,21 @@
 
 <h2>Результаты поиска</h2>
 
+{% for site in sites %}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3>
+            <a href="{{ path('site_details', {url: site.url}) }}">
+                {{site.title}}
+            </a>
+        </h3>
+        <p>
+            {{ site.description }}
+        </p>
+    </div>
+</div>
+
+{% endfor %}
+
 {% endblock %}
