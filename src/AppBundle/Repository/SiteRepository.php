@@ -10,4 +10,20 @@ namespace AppBundle\Repository;
  */
 class SiteRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findSitesByKeywords($keywords) {
+        return $this->getEntityManager()
+        ->createQuery(
+            'SELECT s
+            FROM AppBundle:Site s
+            WHERE s.flag = :flag
+                AND (
+                    s.title LIKE :keywords
+                    OR s.url LIKE :keywords
+                    OR s.description LIKE :keywords
+                )
+        ')
+        ->setParameter('flag', 1)
+        ->setParameter('keywords', '%' . $keywords . '%')
+        ->getResult();
+    }
 }

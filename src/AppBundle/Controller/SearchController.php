@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Site;
+//use AppBundle\Repository\SearchRepository;
 
 class SearchController extends Controller
 {
@@ -13,11 +14,7 @@ class SearchController extends Controller
     {
 
         $sites = $this->getDoctrine()->getRepository(Site::class)
-            ->findBy(
-                ['flag' => 1],
-                ['url' => 'ASC'],
-                50
-            );
+            ->findSitesByKeywords($request->query->get('text'));
 
         return $this->render('AppBundle:Search:index.html.twig', [
             'sites' => $sites,
