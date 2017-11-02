@@ -22,6 +22,13 @@
                     {% if is_granted("ROLE_USER") %}
                         {{ app.user.name }}
                         (<a href="{{ path('logout') }}">Выйти</a>)
+
+                        {% if app.user.avatara != '' %}
+                            <div class="user-photo">
+                                <img src="{{ path('avatara_image', {id: app.user.id}) }}" alt='Avatara' />
+                            </div>
+                        {% endif %}
+
                     {% else %}
                         <a href="{{ path('login') }}" class="btn btn-primary">
                             <i class="fa fa-facebook-square" aria-hidden="true"></i>

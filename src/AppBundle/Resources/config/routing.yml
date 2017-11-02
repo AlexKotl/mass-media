@@ -11,6 +11,10 @@ search_results:
     path:     /search
     defaults: { _controller: AppBundle:Search:search }
 
+avatara_image:
+    path:     /avatara/{id}
+    defaults: { _controller: AppBundle:User:avatara}
+
 # auth routs
 login:
     path:     /login
