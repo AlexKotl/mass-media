@@ -32,26 +32,43 @@
 
     <div class="col-sm-9">
         <h3>Последние ресурсы</h3>
-        <ul>
-            {% for site in sites %}
-                <li>
+
+        {% for site in sites %}
+
+            <div class="panel ">
+                <div class="panel-body">
                     <a href="{{ path('site_details', {url: site.url}) }}">
-                        {{ site.url }}
+                        <strong>
+                            {{ site.title }}
+                        </strong>
                     </a>
-                </li>
-            {% endfor %}
-        </ul>
+                    <br/>
+                    <small>{{ site.url }}</small>
+                    <div>
+                        <i class="fa fa-comment-o" aria-hidden="true"></i>
+                        {{ site.comments | length }}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
     </div>
 
     <div class="col-sm-3">
         <h3>Комментарии</h3>
-        <ul>
-            {% for comment in comments %}
-                <li>
+
+        {% for comment in comments %}
+            <div class="panel panel-default">
+                <div class="panel-body">
                     {{ comment.text|length > 50 ? comment.text|slice(0, 50) ~ '...' : comment.text }}
-                </li>
-            {% endfor %}
-        </ul>
+                    <a href="{{ path('site_details', {url: comment.site.url}) }}"
+                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+
     </div>
 
 {% endblock %}
